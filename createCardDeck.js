@@ -6,45 +6,40 @@ const getDeck = () => {
   const deck = []
   const suits = ['hearts', 'spades', 'clubs', 'diamonds']
 
-  for (let index = 0; index < suits.length; index++) {
+  for (let i = 0; i < suits.length; i++) {
     // create an array of 13 objects
     for (let j = 1; j <= 13; j++) {
       // for each loop, push a card object to the deck
-
-      // special cases for when j > 10
-      const displayVal = ''
-
-      switch (j) {
-        case j === 1:
-          displayVal = 'Ace'
-          break
-        case j > 1 && j <= 10:
-          displayVal = j
-          break
-        case j === 11:
-          displayVal = 'Jack'
-          break
-        case j === 12:
-          displayVal = 'Queen'
-          break
-        case j === 13:
-          displayVal = 'King'
-          break
+      let val =0
+      let displayVal = ''
+      
+      if (j === 1){
+        val = 11,
+        displayVal = 'Ace'
+      }else if (j === 11){
+        val = 10,
+        displayVal = 'Jack'
+      }else if (j === 12){
+        val = 10,
+        displayVal = 'Queen'
+      }else if (j === 13){
+        val = 10,
+        displayVal = 'King'
+      }else{
+        val = j,
+        displayVal = j.toString()
       }
 
       const card = {
-        val: j,
+        val: val,
         displayVal: displayVal,
-        suit: suits[index],
-      }
-
-      if (displayVal === 'Ace') {
-        card.val = 11
+        suit: suits[i],
       }
 
       deck.push(card)
     }
   }
+  return deck;
 }
 
 // CHECKS
@@ -66,3 +61,5 @@ const cardHasDisplayVal =
   randomCard.displayVal &&
   typeof randomCard.displayVal === 'string'
 console.log(`Random card has display value? ${cardHasDisplayVal}`)
+
+

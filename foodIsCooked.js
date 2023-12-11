@@ -7,6 +7,23 @@
  */
 const foodIsCooked = function(kind, internalTemp, doneness) {
   // Write function HERE
+  if (kind === 'chicken') {
+    if(internalTemp > 165){
+      return true;
+    }else{ return false}
+
+  }else if(kind ==='beef'){
+    if (internalTemp >125 && internalTemp <135 && doneness ==='rare'){
+      return true;
+    }else if(internalTemp >135 && internalTemp <155 && doneness ==='medium'){
+      return true;
+    }else  if(internalTemp >155 && doneness ==='well'){
+      return true
+    }else{
+      return false
+    }
+
+  }else {return 'Please select chicken or beef.'};
 
 }
 
